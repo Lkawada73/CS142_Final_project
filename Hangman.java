@@ -26,7 +26,8 @@ public class Hangman1 {
 	public static String HangMan(String[]List,Scanner s) {
 		 int TotalWrong=0;
 		 int TotalRight=0;
-		for(int i=0;i<5;i++) {
+		 boolean Feedback=false;
+		for(int i=0;i<8;i++) {
 			
 			System.out.println("Guess any letter in the word");
 			
@@ -34,12 +35,23 @@ public class Hangman1 {
 			for(int x=0;x<List.length;x++) {
 				if(guess.equals(List[x])) {
 					TotalRight++;
-				}else {
-					TotalWrong++;
+					Feedback=true;
 				}
 				}
+			if(Feedback==false) {
+				System.out.println("That letter is not on the word");
+				TotalWrong++;
+				System.out.println(Stickfigure(TotalWrong));
+			}else if(Feedback==true) {
+				System.out.println("Keep going you got this");
+				System.out.println(Stickfigure(TotalWrong));
+				Feedback=false;
+			}
 			System.out.println("You got "+TotalRight+" letters right!");
 			System.out.println(Stickfigure(TotalWrong));
+			if(TotalWrong==6) {
+				System.out.println("You Lost!");
+			}
 			 if(TotalRight==List.length) {
 				 System.out.println("You Won!");
 				 return"You Won";
@@ -50,9 +62,17 @@ public class Hangman1 {
 	}
 	public static String Stickfigure(int Total) {
 		if(Total==1) {
-			return";_;";
+			return" O";
 		}else if(Total==2) {
-			return";_;"+"\n"+" |"+"\n"+" |";
+			return" O"+"\n"+" |";
+		}else if(Total==3) {
+			return" O"+"\n"+"/|";
+		}else if(Total==4) {
+			return" O"+"\n"+"/|"+")";
+		}else if(Total==5) {
+			return" O"+"\n"+"/|"+")"+"\n"+"/";
+		}else if(Total==6) {
+			return" O"+"\n"+"/|"+")"+"\n"+"/"+" ]";
 		}
 		return"";
 	}
