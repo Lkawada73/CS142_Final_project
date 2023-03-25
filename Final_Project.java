@@ -196,7 +196,7 @@ public class Final_Project {
 		 boolean playH=true;
 		while(playH==true) {
 			//made by Lance and William
-			System.out.println("Guess any letter that makes up the word in my head");
+			System.out.println("Guess any letter that makes up the word in my head(Lower case letters only)");
 			
 			String guess = s.nextLine();
 			for(int x=0;x<List.length;x++) {
