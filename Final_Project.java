@@ -4,6 +4,7 @@ import java.util.Scanner;
 ///made by William,Lance and Megan
 public class Final_Project {
 	public static void main(String[]args) {
+		//Inital dialoge
 		System.out.println("A diffused light shines upon this poor malcontent.");
 		wait(2500);
 		System.out.println("\n"+"The cacophany of digital sound eminates these walls.");
@@ -64,6 +65,7 @@ public class Final_Project {
             
 
         }
+		//some more sections of dialogue
         System.out.println("\n"+"You may now advance boy Edgar.(Alleyway Man)");
         wait(2500);
         System.out.println("\n"+"Edgar has reached the first checkpoint!");
@@ -86,6 +88,7 @@ public class Final_Project {
         s = new Scanner(System.in);
         r=new Random();
         play=true;
+		//A loop that continues if you lose
         while(play==true) {
         	int option = s.nextInt();
             //the game of roulette was contributed by Megan
@@ -145,7 +148,8 @@ public class Final_Project {
        
         s = new Scanner(System.in);
         r = new Random();
-        System.out.println("Welcome to Hangman");
+		
+        
 		
 		String[] plugInList= {};
 		int cNum=r.nextInt(3);
@@ -160,7 +164,7 @@ public class Final_Project {
 			plugInList=eagle;
 		}
 		
-		//HangMan(plugInList,s);
+		//Dialouge depending on if you win or lose.
         if(HangMan(plugInList,s).equals("You Won")) {
         	System.out.println("\n"+"...How... HOW DID YOU DO IT");
     		wait(2500);
@@ -183,6 +187,7 @@ public class Final_Project {
 		
 		
 	}
+	//The hangman method explained in our report
 	public static String HangMan(String[]List,Scanner s) {
 		 int TotalWrong=0;
 		 int TotalRight=0;
@@ -229,7 +234,7 @@ public class Final_Project {
 		
 		return"You Lost";
 	}
-	
+	//A Wait method to avoid redundant code
 	public static void wait(int num) {
 		try {
 			Thread.sleep(num);
@@ -237,6 +242,7 @@ public class Final_Project {
 			e.printStackTrace();
 		}
 	}
+	//An input method that capitalises every input thanks to Megan
 	public static String getInput(Scanner s, String prompt ){
         System.out.println(prompt);
         String input = s.next();
@@ -244,6 +250,7 @@ public class Final_Project {
         input = input.toUpperCase();
         return input;
     }
+	//The method that defines the rules for Rock Paper Scissors
 	 public static String determineWinner(String user, String comp){
 	        if (user.equals(comp)){
 	            System.out.println("Its a tie!");
@@ -260,7 +267,7 @@ public class Final_Project {
 	        }
 
 	    }
-	
+	//Makes a stick figure depending on the amount of times you have failed.
 	 public static String Stickfigure(int Total) {
 			if(Total==1) {
 				return" O";
