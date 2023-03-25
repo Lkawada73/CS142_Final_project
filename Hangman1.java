@@ -2,7 +2,7 @@ import java.util.Random;
 import java.util.Scanner;
 public class Hangman1 {
 	public static void main(String[] args) {
-		System.out.println("Welcome to Hangman");
+		
 		Scanner s = new Scanner(System.in);
 		Random r = new Random();
 		String[] plugInList= {};
@@ -24,13 +24,14 @@ public class Hangman1 {
 
 		}
 	public static String HangMan(String[]List,Scanner s) {
-		 int TotalWrong=0;
+		int TotalWrong=0;
 		 int TotalRight=0;
 		 String[]doneList= {"","","","",""} ;
 		 boolean Feedback=false;
-		for(int i=0;i<8;i++) {
-			
-			System.out.println("Guess any letter in the word");
+		 boolean playH=true;
+		while(playH==true) {
+			//made by Lance and William
+			System.out.println("Guess any letter that makes up the word in my head");
 			
 			String guess = s.nextLine();
 			for(int x=0;x<List.length;x++) {
@@ -42,11 +43,11 @@ public class Hangman1 {
 				}
 			
 			if(Feedback==false) {
-				System.out.println("That letter is not on the word");
+				System.out.println("That letter is simply not on the word");
 				TotalWrong++;
 				System.out.println(Stickfigure(TotalWrong));
 			}else if(Feedback==true) {
-				System.out.println("Keep going you got this");
+				
 				System.out.println(Stickfigure(TotalWrong));
 				Feedback=false;
 			}
@@ -54,14 +55,16 @@ public class Hangman1 {
 			System.out.println(Stickfigure(TotalWrong));
 			if(TotalWrong==6) {
 				System.out.println("You Lost!");
+				playH=true;
 				break;
 			}
 			 if(TotalRight==List.length) {
 				 System.out.println("You Won!");
-				 
+				 playH=false;
 				 return"You Won";
 				 
 			 }
+			 
 			 }
 		
 		return"You Lost";
@@ -78,7 +81,7 @@ public class Hangman1 {
 		}else if(Total==5) {
 			return" O"+"\n"+"/|"+")"+"\n"+"/";
 		}else if(Total==6) {
-			return" O"+"\n"+"/|"+")"+"\n"+"/"+" )";
+			return" O"+"\n"+"/|"+")"+"\n"+"/"+" ]";
 		}
 		return"";
 	}
